@@ -12,6 +12,7 @@ A proprietary font is used, so the font files are stored on a remote server and 
 - `bash` shell
 - `git`
 - `rsync`
+- having git cloned the fashioning_insurrection_site_build repository
 - likely VPN
 - A properly configured `fi_build_dotenv.sh` file in the parent directory
 
