@@ -1,6 +1,6 @@
 # Fashioning Insurrection Build Script
 
-This script automates a build of the Fashioning Insurrection static website. It handles updating the build repository and syncing assets from a remote server to the local build directory.
+This script automates -- for Library staff -- a build of the Fashioning Insurrection static website. It handles updating the build repository and syncing assets from a remote server to the local build directory.
 
 The purpose of building this way is to be able to have the core of the static-site take advantage of github's versioning, without the churn and unnecessary bloat of including changing binary images.
 
