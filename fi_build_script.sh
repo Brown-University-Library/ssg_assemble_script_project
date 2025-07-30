@@ -16,9 +16,9 @@ echo ":: envars sourced from: $dotenv_path"
 echo " "
 
 ## set vars ---------------------------------------------------------
-LOCAL_BUILD_DIR="$(realpath "../fashioning_insurrection_site_build")"
-LOCAL_IMAGE_DIR="$(realpath "../fashioning_insurrection_site_build/img")"
-LOCAL_FONT_DIR="$(realpath "../fashioning_insurrection_site_build/fonts")"
+LOCAL_BUILD_DIR="$(realpath "../fashioning_insurrection_site_build")" || { echo "Error: Build directory not found at $(cd .. && pwd)/fashioning_insurrection_site_build" >&2; exit 1; }
+LOCAL_IMAGE_DIR="$(realpath "../fashioning_insurrection_site_build/img")" || { echo "Error: Image directory not found at $(cd .. && pwd)/fashioning_insurrection_site_build/img" >&2; exit 1; }
+LOCAL_FONT_DIR="$(realpath "../fashioning_insurrection_site_build/fonts")" || { echo "Error: Font directory not found at $(cd .. && pwd)/fashioning_insurrection_site_build/fonts" >&2; exit 1; }
 GIT_BUILD_REPO="https://github.com/Brown-University-Library/fashioning_insurrection_site_build.git"
 REMOTE_SERVER=$FI_BUILD__REMOTE_SERVER          # from the dotenv-source
 REMOTE_IMAGE_DIR=$FI_BUILD__REMOTE_IMAGE_DIR    # from the dotenv-source
