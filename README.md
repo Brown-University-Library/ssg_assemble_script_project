@@ -74,8 +74,8 @@ The script includes error handling to:
 
 ## Notes
 
-- The script uses `rsync` with the `--delete` flag, which will remove files on the remote that don't exist locally
-- Ensure you have proper SSH access to the remote server
+- The script uses `rsync` with the `--delete` flag, which will remove files on the local-build that don't exist on the remote-server
+- Ensure you have proper SSH access to the remote-server
 - The script is designed to be run from its own directory and will alert you if it is not run from the correct directory
 
 
