@@ -18,7 +18,8 @@ echo " "
 ## set vars ---------------------------------------------------------
 LOCAL_BUILD_DIR="$(realpath "../fashioning_insurrection_site_build")" || { echo "Error: Build directory not found at $(cd .. && pwd)/fashioning_insurrection_site_build" >&2; exit 1; }
 LOCAL_IMAGE_DIR="$(realpath "../fashioning_insurrection_site_build/img")" || { echo "Error: Image directory not found at $(cd .. && pwd)/fashioning_insurrection_site_build/img" >&2; exit 1; }
-LOCAL_FONT_DIR="$(realpath "../fashioning_insurrection_site_build/fonts")" || { echo "Error: Font directory not found at $(cd .. && pwd)/fashioning_insurrection_site_build/fonts" >&2; exit 1; }
+# LOCAL_FONT_DIR="$(realpath "../fashioning_insurrection_site_build/fonts")" || { echo "Error: Font directory not found at $(cd .. && pwd)/fashioning_insurrection_site_build/fonts" >&2; exit 1; }
+LOCAL_FONT_DIR="../fashioning_insurrection_site_build/fonts"
 GIT_BUILD_REPO="https://github.com/Brown-University-Library/fashioning_insurrection_site_build.git"
 REMOTE_SERVER=$SSG_ASSEMBLE__REMOTE_SERVER          # from the dotenv-source
 REMOTE_IMAGE_DIR=$SSG_ASSEMBLE__REMOTE_IMAGE_DIR    # from the dotenv-source
