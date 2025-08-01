@@ -1,6 +1,12 @@
-# Fashioning Insurrection Build Script
+# Static-Site Generator (SSG) Assemble Script
 
-This script automates -- for Library staff -- a build of the Fashioning Insurrection static website. It handles updating the build repository and syncing assets from a remote server to the local build directory.
+This script automates -- for Library staff -- a build of the specified static website. It's designed for a specific purpose: to _assemble_ a static-site directory from two sources:
+
+- a github repository containing everything but the image and font assets
+
+- the remote image and font directories
+
+The script updates the local SSG repository directory, then rsyncs assets from a remote server to the local SSG directory.
 
 The purpose of building this way is to be able to have the core of the static-site take advantage of github's versioning, without the churn and unnecessary bloat of including changing binary images.
 
@@ -12,9 +18,9 @@ A proprietary font is used, so the font files are stored on a remote server and 
 - `bash` shell
 - `git`
 - `rsync`
-- having git cloned the fashioning_insurrection_site_build repository
+- having git cloned the SSG repository
 - likely VPN
-- A properly configured `fi_build_dotenv.sh` file in the parent directory
+- A properly configured `ssg_assemble_dotenv.sh` file in the parent directory
 
 
 ## Configuration
@@ -23,9 +29,9 @@ Before running the script, ensure you have a `fi_build_dotenv.sh` file in the pa
 
 ```bash
 # Remote server configuration
-export FI_BUILD__REMOTE_SERVER="user@example.com"
-export FI_BUILD__REMOTE_IMAGE_DIR="/path/to/remote/images"
-export FI_BUILD__REMOTE_FONT_DIR="/path/to/remote/fonts"
+export SSG_ASSEMBLE__REMOTE_SERVER="user@example.com"
+export SSG_ASSEMBLE__REMOTE_IMAGE_DIR="/path/to/remote/images"
+export SSG_ASSEMBLE__REMOTE_FONT_DIR="/path/to/remote/fonts"
 ```
 
 ## Assumed Directory Structure
@@ -40,11 +46,13 @@ fi_build_stuff/
     └── fonts/
 ```
 
+
 ## Usage
 
 ```bash
 bash ./fi_build_script.sh
 ```
+
 
 ## What the Script Does
 
@@ -69,5 +77,9 @@ The script includes error handling to:
 - The script uses `rsync` with the `--delete` flag, which will remove files on the remote that don't exist locally
 - Ensure you have proper SSH access to the remote server
 - The script is designed to be run from its own directory and will alert you if it is not run from the correct directory
+
+
+## TODO
+- remove more references to the `fashioning insurrection` project, so the code is more generic
 
 ---
