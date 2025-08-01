@@ -57,10 +57,10 @@ bash ./fi_build_script.sh
 ## What the Script Does
 
 1. Verifies the working directory
-2. Sources environment variables from `fi_build_dotenv.sh`
+2. Sources environment variables from `ssg_assemble_dotenv.sh`
 3. Sets up directory paths
-4. Updates the local build repository by pulling the latest changes
-5. Syncs images and fonts to the remote server using rsync
+4. Updates the local build repository by pulling the latest changes from the github repo
+5. Syncs images and fonts from the remote server to the local build directory using rsync
 
 
 ## Error Handling
