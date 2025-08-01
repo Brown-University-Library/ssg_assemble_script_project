@@ -12,7 +12,7 @@ echo " "
 ## source the dotenv file -------------------------------------------
 dotenv_path="$(realpath "../ssg_assemble_dotenv.sh")" || { echo "Error: Failed to get realpath of ssg_assemble_dotenv.sh" >&2; exit 1; }
 source "$dotenv_path" || { echo "Error: Failed to source $dotenv_path" >&2; exit 1; }
-echo ":: envars sourced from: $dotenv_path"
+echo ":: envars successfully sourced from: $dotenv_path"
 echo " "
 
 ## set vars ---------------------------------------------------------
@@ -24,7 +24,7 @@ GIT_BUILD_REPO="https://github.com/Brown-University-Library/fashioning_insurrect
 REMOTE_SERVER=$SSG_ASSEMBLE__REMOTE_SERVER          # from the dotenv-source
 REMOTE_IMAGE_DIR=$SSG_ASSEMBLE__REMOTE_IMAGE_DIR    # from the dotenv-source
 REMOTE_FONT_DIR=$SSG_ASSEMBLE__REMOTE_FONT_DIR      # from the dotenv-source
-echo ":: vars prepared..."
+echo ":: vars successfully prepared..."
 echo "- LOCAL_BUILD_DIR: $LOCAL_BUILD_DIR"
 echo "- LOCAL_IMAGE_DIR: $LOCAL_IMAGE_DIR"
 echo "- LOCAL_FONT_DIR: $LOCAL_FONT_DIR"
@@ -32,15 +32,23 @@ echo "- GIT_BUILD_REPO: $GIT_BUILD_REPO"
 echo "- REMOTE_SERVER: $REMOTE_SERVER"
 echo "- REMOTE_IMAGE_DIR: $REMOTE_IMAGE_DIR"
 echo "- REMOTE_FONT_DIR: $REMOTE_FONT_DIR"
+echo " "
 
 ## update the repo --------------------------------------------------
 cd "$LOCAL_BUILD_DIR" || { echo "Error: Failed to change to directory $LOCAL_BUILD_DIR" >&2; exit 1; }
 git pull $GIT_BUILD_REPO
+echo ":: repo successfully updated from github"
+echo " "
 
 ## rsync the images and fonts ---------------------------------------
 cd "$LOCAL_BUILD_DIR" || { echo "Error: Failed to change to directory $LOCAL_BUILD_DIR" >&2; exit 1; }
 rsync -avz --delete "$REMOTE_SERVER:$REMOTE_IMAGE_DIR/" "$LOCAL_IMAGE_DIR"
+echo ":: images successfully rsync'd"
+echo " "
 rsync -avz --delete "$REMOTE_SERVER:$REMOTE_FONT_DIR/" "$LOCAL_FONT_DIR"
+echo ":: fonts successfully rsync'd"
+echo " "
 
 cd "$script_dir" || { echo "Error: Failed to change to directory $script_dir" >&2; exit 1; }
 echo ":: fi_build_script.sh completed successfully"
+echo " "
